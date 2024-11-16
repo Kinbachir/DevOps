@@ -25,9 +25,8 @@ jobs:
       - name: Push Docker Image
         run: docker push ${{ secrets.DOCKER_USERNAME }}/python-app:latest
 
-
   deploy:
-    needs: sonar
+    needs: build
     runs-on: ubuntu-latest
 
     steps:
