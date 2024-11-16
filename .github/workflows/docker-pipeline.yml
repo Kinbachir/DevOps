@@ -30,18 +30,23 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Run SonarQube analysis
+      - name: Set up JDK 11 # Adjust this if you need a different Java version
+        uses: actions/setup-java@v3
+        with:
+          java-version: 11
+
+      - name: Run SonarCloud analysis
         uses: sonarsource/sonarcloud-github-action@v2
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN_1 }}
         with:
           args: >
             -Dsonar.projectKey=${{ secrets.SONAR_PROJECT_KEY }}
             -Dsonar.organization=${{ secrets.SONAR_ORGANIZATION }}
             -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }}
-            -Dsonar.login=${{ secrets.SONAR_TOKEN_1 }}
 
   deploy:
     needs: sonar
