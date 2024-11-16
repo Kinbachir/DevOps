@@ -25,8 +25,26 @@ jobs:
       - name: Push Docker Image
         run: docker push ${{ secrets.DOCKER_USERNAME }}/python-app:latest
 
-  deploy:
+  sonar:
     needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+    
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Run SonarQube analysis
+        uses: sonarsource/sonarcloud-github-action@v2
+        with:
+          args: >
+            -Dsonar.projectKey=${{ secrets.SONAR_PROJECT_KEY }}
+            -Dsonar.organization=${{ secrets.SONAR_ORGANIZATION }}
+            -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }}
+            -Dsonar.login="3c255240555d098fb48977af21b7156456180219"
+
+  deploy:
+    needs: sonar
     runs-on: ubuntu-latest
 
     steps:
