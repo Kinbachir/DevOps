@@ -41,7 +41,7 @@ jobs:
             -Dsonar.projectKey=${{ secrets.SONAR_PROJECT_KEY }}
             -Dsonar.organization=${{ secrets.SONAR_ORGANIZATION }}
             -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }}
-            -Dsonar.login="3c255240555d098fb48977af21b7156456180219"
+            -Dsonar.login=${{ secrets.SONAR_TOKEN }}
 
   deploy:
     needs: sonar
