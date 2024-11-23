@@ -3,7 +3,7 @@ FROM python:3.9-slim
 WORKDIR /app
 
 # Copy application code into the container
-COPY app.py /app/static
+COPY app.py /app/
 COPY templates /app/templates
 COPY static /app/static
 
