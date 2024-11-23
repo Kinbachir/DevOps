@@ -10,7 +10,7 @@ COPY templates /app/templates
 RUN pip install flask gunicorn
 
 # Expose the port the app will run on
-EXPOSE 5000
+EXPOSE 80
 
 # Use Gunicorn to run the app in production
-CMD ["gunicorn", "-w", "4", "-b", "0.0.0.0:80", "app:app"]
+CMD ["gunicorn", "-w", "4", "-b", "0.0.0.0", "app:app"]

@@ -28,4 +28,4 @@ def index():
     return render_template("index.html", result_pgcd=result_pgcd, result_ppm=result_ppm, error_message=error_message)
 
 if __name__ == "__main__":
-    app.run(debug=false)
+    app.run(debug=False)
