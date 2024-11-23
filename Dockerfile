@@ -2,9 +2,11 @@ FROM python:3.9-slim
 
 WORKDIR /app
 
-COPY app.py app.py
+COPY app.py /app/
+COPY templates /app/templates
 
-RUN apt-get update && apt-get install -y --no-install-recommends python3-pip && \
-    apt-get clean && rm -rf /var/lib/apt/lists/*
+RUN pip install flask
+
+EXPOSE 80
 
 CMD ["python", "app.py"]
