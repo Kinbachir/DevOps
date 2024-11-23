@@ -13,4 +13,4 @@ RUN pip install flask
 EXPOSE 80
 
 # Use flask to run the app in production
-CMD ["python", "app/app.py"]
+CMD ["flask", "run", "--host=0.0.0.0", "--port=5000"]
