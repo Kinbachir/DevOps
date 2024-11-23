@@ -2,11 +2,15 @@ FROM python:3.9-slim
 
 WORKDIR /app
 
+# Copy application code into the container
 COPY app.py /app/
 COPY templates /app/templates
 
-RUN pip install flask
+# Install Python dependencies
+RUN pip install flask gunicorn
 
+# Expose the port the app will run on
 EXPOSE 5000
 
-CMD ["python", "app.py"]
+# Use Gunicorn to run the app in production
+CMD ["gunicorn", "-w", "4", "-b", "0.0.0.0:5000", "app:app"]
