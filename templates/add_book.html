@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Add New Book</h2>
+<form method="POST">
+    <input type="text" name="title" placeholder="Book Title" required><br>
+    <input type="text" name="author" placeholder="Author" required><br>
+    <input type="text" name="genre" placeholder="Genre"><br>
+    <input type="number" name="year_published" placeholder="Year Published"><br>
+    <select name="status">
+        <option value="To Read">To Read</option>
+        <option value="Reading">Reading</option>
+        <option value="Completed">Completed</option>
+    </select><br>
+    <textarea name="review" placeholder="Write a review..."></textarea><br>
+    <button type="submit">Add Book</button>
+</form>
+{% endblock %}

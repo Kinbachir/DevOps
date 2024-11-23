@@ -1,0 +1,307 @@
+/* General Reset and Body Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    line-height: 1.6;
+}
+
+h1, h2 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Navigation Bar */
+nav {
+    background-color: #333;
+    padding: 15px 0;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+}
+
+nav ul li {
+    margin-right: 30px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+nav ul li a:hover {
+    color: #ff6347; /* Tomato color for hover effect */
+}
+
+/* Flash Messages */
+.flashes {
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+.flash {
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.flash.success {
+    background-color: #28a745;
+    color: white;
+}
+
+.flash.danger {
+    background-color: #dc3545;
+    color: white;
+}
+
+/* Container and Content */
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Form Styling */
+form {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 30px;
+}
+
+form input, form textarea, form select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+form button {
+    background-color: #007bff;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+form button:hover {
+    background-color: #0056b3;
+}
+
+form textarea {
+    resize: vertical;
+    height: 150px;
+}
+
+/* Dashboard Page */
+.dashboard .table {
+    width: 100%;
+    margin-top: 30px;
+    border-collapse: collapse;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.dashboard .table th, .dashboard .table td {
+    padding: 15px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.dashboard .table th {
+    background-color: #f4f4f4;
+}
+
+.dashboard .table tr:hover {
+    background-color: #f9f9f9;
+}
+
+.dashboard .btn {
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.dashboard .btn:hover {
+    background-color: #0056b3;
+}
+
+/* Card-style Book Display */
+.book-card {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.book-card .card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: calc(33% - 20px);
+    box-sizing: border-box;
+}
+
+.book-card .card h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.book-card .card p {
+    margin-bottom: 10px;
+}
+
+.book-card .card a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.book-card .card a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+    }
+
+    nav ul li {
+        margin-bottom: 10px;
+    }
+
+    .dashboard .table, .book-card .card {
+        width: 100%;
+    }
+
+    .book-card .card {
+        width: 100%;
+    }
+
+    form {
+        padding: 15px;
+    }
+
+    form input, form textarea, form select {
+        padding: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    nav ul li {
+        margin-right: 10px;
+    }
+}
+/* Table Styling */
+.table-container {
+    overflow-x: auto;
+    margin-top: 30px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+table th, table td {
+    padding: 15px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+table th {
+    background-color: #f4f4f4;
+}
+
+table tr:hover {
+    background-color: #f9f9f9;
+}
+
+table td a {
+    color: #007bff;
+    text-decoration: none;
+    margin: 5px;
+}
+
+table td a:hover {
+    text-decoration: underline;
+}
+
+/* Pagination Styling */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pagination a {
+    padding: 8px 16px;
+    margin: 0 5px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.pagination a:hover {
+    background-color: #0056b3;
+}
+
+.btn-add-book {
+    background-color: #007bff; /* Blue background */
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none; /* Remove underline from link */
+    display: inline-flex;
+    align-items: center; /* Align icon and text horizontally */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-add-book i {
+    margin-right: 8px; /* Add space between icon and text */
+}
+
+.btn-add-book:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    transform: scale(1.05); /* Slightly enlarge button on hover */
+}
+
+.btn-add-book:focus {
+    outline: none;
+}
+
+.btn-add-book:active {
+    background-color: #004085; /* Even darker blue when clicked */
+}

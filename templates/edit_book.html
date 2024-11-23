@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Edit Book</h2>
+<form method="POST">
+    <input type="text" name="title" value="{{ book.title }}" required><br>
+    <input type="text" name="author" value="{{ book.author }}" required><br>
+    <input type="text" name="genre" value="{{ book.genre }}"><br>
+    <input type="number" name="year_published" value="{{ book.year_published }}"><br>
+    <select name="status">
+        <option value="To Read" {% if book.status == 'To Read' %}selected{% endif %}>To Read</option>
+        <option value="Reading" {% if book.status == 'Reading' %}selected{% endif %}>Reading</option>
+        <option value="Completed" {% if book.status == 'Completed' %}selected{% endif %}>Completed</option>
+    </select><br>
+    <textarea name="review">{{ book.review }}</textarea><br>
+    <button type="submit">Update Book</button>
+</form>
+{% endblock %}
