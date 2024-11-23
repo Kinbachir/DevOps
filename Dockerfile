@@ -10,7 +10,7 @@ COPY templates /app/templates
 RUN pip install flask
 
 # Expose the port the app will run on
-EXPOSE 8000
+EXPOSE 80
 
 # Use flask to run the app in production
-CMD ["python3", "-m", "http.server", "8000","--directory","app"]
+CMD ["python", "app.py"]
