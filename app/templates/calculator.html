@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculatrice Flask</title>
+    <style>
+        /* Style général */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #141437;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        h1 {
+            text-align: center;
+            color: #4c7faf;
+            margin-bottom: 20px;
+        }
+
+        /* Conteneur principal */
+        .container {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        input:focus, select:focus, button:focus {
+            outline: none;
+            border-color: #4CAF50;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+            border: none;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .result, .error {
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .result {
+            color: #3d4bcc;
+        }
+
+        .error {
+            color: #e74c3c;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Calculatrice</h1>
+        <form method="POST">
+            <label for="num1">Nombre 1 :</label>
+            <input type="number" step="any" id="num1" name="num1" placeholder="Entrez nb1" required>
+
+            <label for="num2">Nombre 2 :</label>
+            <input type="number" step="any" id="num2" name="num2" placeholder="Entrez nb2" required>
+
+            <label for="operation">Opération :</label>
+            <select id="operation" name="operation" required>
+                <option value="+">Addition (+)</option>
+                <option value="-">Soustraction (-)</option>
+                <option value="*">Multiplication (*)</option>
+                <option value="/">Division (/)</option>
+            </select>
+
+            <button type="submit">Calculer</button>
+        </form>
+
+        <!-- Résultats -->
+        {% if result is not none %}
+        <div class="result">Résultat : {{ result }}</div>
+        {% endif %}
+
+        {% if error is not none %}
+        <div class="error">Erreur : {{ error }}</div>
+        {% endif %}
+    </div>
+</body>
+</html>

@@ -1,16 +1,17 @@
+# Utiliser l'image Python officielle comme base
 FROM python:3.9-slim
 
+# Définir le répertoire de travail
 WORKDIR /app
 
-# Copy application code into the container
-COPY app.py /app/
-COPY templates /app/templates
+# Copier les fichiers de l'application dans le conteneur
+COPY . /app
 
-# Install Python dependencies
-RUN pip install flask
+# Installer les dépendances
+RUN pip install --no-cache-dir -r requirements.txt
 
-# Expose the port the app will run on
-EXPOSE 80
+# Exposer le port 5000 utilisé par Flask
+EXPOSE 5000
 
-# Use flask to run the app in production
+# Lancer l'application Flask
 CMD ["flask", "run", "--host=0.0.0.0", "--port=5000"]

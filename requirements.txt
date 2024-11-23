@@ -1,0 +1,4 @@
+pytest
+Flask>=2.0.0
+Werkzeug>=2.0.0
+gunicorn==20.1.0
