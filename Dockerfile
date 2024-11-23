@@ -7,7 +7,7 @@ COPY app.py /app/
 COPY templates /app/templates
 
 # Install Python dependencies
-RUN pip install flask
+RUN pip install flask flask-bcrypt flask-sqlalchemy werkzeug
 
 # Expose the port the app will run on
 EXPOSE 80
