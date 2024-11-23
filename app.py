@@ -47,7 +47,7 @@ def signup():
         db.session.add(new_user)
         db.session.commit()
         flash("Account created successfully!", "success")
-        return redirect(url_for('home'))
+        return redirect(url_for('login.html'))
 
     return render_template('signup.html')
 
@@ -60,7 +60,7 @@ def login():
 
         if not user or not bcrypt.check_password_hash(user.password, password):  # Use Bcrypt to check the password
             flash("Invalid username or password", "danger")
-            return redirect(url_for('home'))
+            return redirect(url_for('login.html'))
 
         session['user_id'] = user.id
         session['username'] = user.username
@@ -72,11 +72,11 @@ def login():
 def logout():
     session.clear()
     flash("Logged out successfully!", "success")
-    return redirect(url_for('home'))
+    return redirect(url_for('login.html'))
 @app.route('/dashboard')
 def dashboard():
     if 'user_id' not in session:
-        return redirect(url_for('home'))
+        return redirect(url_for('login.html'))
 
     # Handle the search query
     search_query = request.args.get('search', '')
@@ -93,7 +93,7 @@ def dashboard():
 @app.route('/add', methods=['GET', 'POST'])
 def add_book():
     if 'user_id' not in session:
-        return redirect(url_for('home'))
+        return redirect(url_for('login.html'))
 
     if request.method == 'POST':
         title = request.form['title']
@@ -122,7 +122,7 @@ def add_book():
 @app.route('/edit/<int:book_id>', methods=['GET', 'POST'])
 def edit_book(book_id):
     if 'user_id' not in session:
-        return redirect(url_for('home'))
+        return redirect(url_for('login.html'))
 
     book = Book.query.get_or_404(book_id)
 
@@ -143,7 +143,7 @@ def edit_book(book_id):
 @app.route('/delete/<int:book_id>')
 def delete_book(book_id):
     if 'user_id' not in session:
-        return redirect(url_for('home'))
+        return redirect(url_for('login.html'))
 
     book = Book.query.get_or_404(book_id)
     db.session.delete(book)
