@@ -3,12 +3,13 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
 
 app = Flask(__name__)
-app.secret_key = "supersecretkey"  # Replace with a secure key in production
+app.secret_key = "sdfghfsdjhghoidfghoidf54981542sd---__--(-(()))"  # Replace with a secure key in production
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///bookshelf.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
 bcrypt = Bcrypt(app)
+
 # Models
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
