@@ -3,20 +3,20 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
 
 app = Flask(__name__)
-app.secret_key = "sdfghfsdjhghoidfghoidf54981542sd---__--(-(()))"  # Replace with a secure key in production
+app.secret_key = "sdfghfsdjhghoidfghoidf54981542sd---__--(-(()))" 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///bookshelf.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
 bcrypt = Bcrypt(app)
 
-# Models
+# Model User
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(100), unique=True, nullable=False)
     password = db.Column(db.String(200), nullable=False)
 
-# Models (same as before)
+# Model Book
 class Book(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(200), nullable=False)
